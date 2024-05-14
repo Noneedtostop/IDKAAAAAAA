@@ -13,7 +13,7 @@ Aimbot.Parent = ScreenGui
 Aimbot.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
 Aimbot.BorderColor3 = Color3.fromRGB(255, 255, 255)
 Aimbot.BorderSizePixel = 3
-Aimbot.Position = UDim2.new(0.76154995, 0, 0.027062656, 0)
+Aimbot.Position = UDim2.new(0.76154995, 0, 0.023062656, 0)
 Aimbot.Size = UDim2.new(0, 200, 0, 125)
 
 Destroy.Name = "Destroy"
