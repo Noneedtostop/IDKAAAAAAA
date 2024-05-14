@@ -112,7 +112,7 @@ local function CGKA_fake_script() -- MainFrame.LocalScript
 					ESP.Name = "ESP"
 					ESP.FillTransparency = 1
 					ESP.Parent = v.Character
-					ESP.FillColor = ESPColor
+					ESP.OutlineColor = ESPColor
 
 				end
 				ESPToggled = true
@@ -146,17 +146,17 @@ local function CGKA_fake_script() -- MainFrame.LocalScript
 end
 
 SelfDestruct.MouseButton1Click:Connect(function()
-    -- Stop the ESP
-    local getPlayers = game.Players:GetPlayers()
-    for i, v in pairs(getPlayers) do
-        local foundESP = v.Character:FindFirstChild("ESP")
-        if foundESP then
-            foundESP:Destroy()
-        end
-    end
+	-- Stop the ESP
+	local getPlayers = game.Players:GetPlayers()
+	for i, v in pairs(getPlayers) do
+		local foundESP = v.Character:FindFirstChild("ESP")
+		if foundESP then
+			foundESP:Destroy()
+		end
+	end
 
-    -- Destroy the GUI
-    ESP:Destroy()
+	-- Destroy the GUI
+	ESP:Destroy()
 end)
 
 coroutine.wrap(CGKA_fake_script)()
