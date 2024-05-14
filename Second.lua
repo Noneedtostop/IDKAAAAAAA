@@ -40,6 +40,9 @@ Title.TextScaled = true
 Title.TextSize = 14.000
 Title.TextWrapped = true
 
+-- Variables:
+local isRightMouseDown = false
+
 -- Functions:
 local function getClosestPlayer()
     local closestDist = math.huge
@@ -69,8 +72,28 @@ Toggle.MouseButton1Click:Connect(function()
     end
 end)
 
+Toggle.MouseButton2Down:Connect(function()
+    isRightMouseDown = true
+end)
+
+Toggle.MouseButton2Up:Connect(function()
+    isRightMouseDown = false
+end)
+
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
     if not gameProcessedEvent and Toggle.Text == "On" and input.UserInputType == Enum.UserInputType.MouseButton2 then
+        isRightMouseDown = true
+    end
+end)
+
+game:GetService("UserInputService").InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then
+        isRightMouseDown = false
+    end
+end)
+
+game:GetService("RunService").Stepped:Connect(function()
+    if isRightMouseDown then
         local closest = getClosestPlayer()
         if closest then
             game.Workspace.CurrentCamera.CFrame = CFrame.new(game.Workspace.CurrentCamera.CFrame.Position, closest.Character.HumanoidRootPart.Position)
