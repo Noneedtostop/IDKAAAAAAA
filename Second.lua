@@ -18,6 +18,7 @@ Aimbot.Size = UDim2.new(0, 200, 0, 125)
 
 Destroy.Name = "Destroy"
 Destroy.Parent = Aimbot
+Destroy.Text = "Destroy"
 Destroy.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 Destroy.BorderColor3 = Color3.fromRGB(255, 255, 255)
 Destroy.BorderSizePixel = 3
@@ -44,18 +45,18 @@ Toggle.TextScaled = true
 Toggle.TextSize = 14.000
 Toggle.TextWrapped = true
 
-TextLabel.Parent = Aimbot
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.BorderSizePixel = 0
-TextLabel.Size = UDim2.new(0, 200, 0, 37)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "SO GOATED"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
+Title.Parent = Aimbot
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Size = UDim2.new(0, 200, 0, 37)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "SO GOATED"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
 
 -- Variables:
 local isRightMouseDown = false
