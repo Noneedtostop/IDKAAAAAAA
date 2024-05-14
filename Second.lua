@@ -61,6 +61,17 @@ local function getClosestPlayer()
 	return closestPlayer
 end
 
+local function ToggleAimbot()
+    if Toggle.Text == "Off" then
+        Toggle.Text = "On"
+        Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
+    else
+        Toggle.Text = "Off"
+        Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+    end
+end
+
+
 -- Scripts:
 Toggle.MouseButton1Click:Connect(function()
 	if Toggle.Text == "Off" then
@@ -80,24 +91,15 @@ Toggle.MouseButton2Up:Connect(function()
 	isRightMouseDown = false
 end)
 
-game:GetService("UserInputService").InputBegan:Connect(function(input, gpe)
-	if not gpe then
-		if input.KeyCode == Enum.Keycode.Minus then
-			if Toggle.Text == "Off" then
-				Toggle.Text = "On"
-				Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
-			else
-				Toggle.Text = "Off"
-				Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
-			end
-		end
-	end
-end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
-	if not gameProcessedEvent and Toggle.Text == "On" and input.UserInputType == Enum.UserInputType.MouseButton2 or input.KeyCode == Enum.KeyCode.ButtonL1 then
-		isRightMouseDown = true
-	end
+    if not gameProcessedEvent and Toggle.Text == "On" then
+        if input.UserInputType == Enum.UserInputType.MouseButton2 or input.KeyCode == Enum.KeyCode.ButtonL1 or input.KeyCode == Enum.KeyCode.ButtonL2 then
+            isRightMouseDown = true
+        elseif input.KeyCode == Enum.KeyCode.Minus then
+            ToggleAimbot()
+        end
+    end
 end)
 
 game:GetService("UserInputService").InputEnded:Connect(function(input)
