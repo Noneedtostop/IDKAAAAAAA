@@ -34,7 +34,7 @@ Title.BackgroundTransparency = 1.000
 Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 95, 0, 29)
 Title.Font = Enum.Font.SourceSans
-Title.Text = "Aimbot by brunkin"
+Title.Text = "Aimbot"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextScaled = true
 Title.TextSize = 14.000
@@ -78,6 +78,20 @@ end)
 
 Toggle.MouseButton2Up:Connect(function()
     isRightMouseDown = false
+end)
+
+game:GetService("UserInputService").InputBegan:Connect(function(input, gpe)
+    if not gpe then
+        if input.Keycode == Enum.Keycode.Minus then
+            if Toggle.Text == "Off" then
+                Toggle.Text = "On"
+                Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
+            else
+                Toggle.Text = "Off"
+                Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+            end
+        end
+    end
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
