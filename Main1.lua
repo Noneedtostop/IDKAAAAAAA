@@ -109,10 +109,12 @@ local function CGKA_fake_script() -- MainFrame.LocalScript
 				for i, v in pairs(getPlayers) do
 					local ESP = Instance.new("Highlight")
 					local ESPColor = Color3.new(255,0,0)
+					local ESPFillColor = Color3.new(255,0,0)
 					ESP.Name = "ESP"
-					ESP.FillTransparency = 1
+					ESP.FillTransparency = .65
 					ESP.Parent = v.Character
 					ESP.OutlineColor = ESPColor
+					ESP.FillColor = ESPFillColor
 
 				end
 				ESPToggled = true
