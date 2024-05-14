@@ -10,9 +10,9 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Aimbot.Name = "Aimbot"
 Aimbot.Parent = ScreenGui
-Aimbot.BackgroundColor3 = Color3.fromRGB(7, 168, 255)
+Aimbot.BackgroundColor3 = Color3.fromRGB(65,65,65)
 Aimbot.BorderSizePixel = 0
-Aimbot.Position = UDim2.new(0.027777778, 0, 0.0788177326, 0)
+Aimbot.Position = UDim2.new(0, 1170, 0, 217)
 Aimbot.Size = UDim2.new(0, 95, 0, 98)
 
 Toggle.Name = "Toggle"
@@ -45,72 +45,72 @@ local isRightMouseDown = false
 
 -- Functions:
 local function getClosestPlayer()
-    local closestDist = math.huge
-    local closestPlayer = nil
-    
-    for _, player in pairs(game.Players:GetPlayers()) do
-        if player ~= game.Players.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-            local dist = (player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
-            if dist < closestDist then
-                closestDist = dist
-                closestPlayer = player
-            end
-        end
-    end
-    
-    return closestPlayer
+	local closestDist = math.huge
+	local closestPlayer = nil
+
+	for _, player in pairs(game.Players:GetPlayers()) do
+		if player ~= game.Players.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+			local dist = (player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+			if dist < closestDist then
+				closestDist = dist
+				closestPlayer = player
+			end
+		end
+	end
+
+	return closestPlayer
 end
 
 -- Scripts:
 Toggle.MouseButton1Click:Connect(function()
-    if Toggle.Text == "Off" then
-        Toggle.Text = "On"
-        Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
-    else
-        Toggle.Text = "Off"
-        Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
-    end
+	if Toggle.Text == "Off" then
+		Toggle.Text = "On"
+		Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
+	else
+		Toggle.Text = "Off"
+		Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+	end
 end)
 
 Toggle.MouseButton2Down:Connect(function()
-    isRightMouseDown = true
+	isRightMouseDown = true
 end)
 
 Toggle.MouseButton2Up:Connect(function()
-    isRightMouseDown = false
+	isRightMouseDown = false
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(input, gpe)
-    if not gpe then
-        if input.Keycode == Enum.Keycode.Minus then
-            if Toggle.Text == "Off" then
-                Toggle.Text = "On"
-                Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
-            else
-                Toggle.Text = "Off"
-                Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
-            end
-        end
-    end
+	if not gpe then
+		if input.KeyCode == Enum.Keycode.Minus then
+			if Toggle.Text == "Off" then
+				Toggle.Text = "On"
+				Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
+			else
+				Toggle.Text = "Off"
+				Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+			end
+		end
+	end
 end)
 
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
-    if not gameProcessedEvent and Toggle.Text == "On" and input.UserInputType == Enum.UserInputType.MouseButton2 then
-        isRightMouseDown = true
-    end
+	if not gameProcessedEvent and Toggle.Text == "On" and input.UserInputType == Enum.UserInputType.MouseButton2 or input.KeyCode == Enum.KeyCode.ButtonL1 then
+		isRightMouseDown = true
+	end
 end)
 
 game:GetService("UserInputService").InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton2 then
-        isRightMouseDown = false
-    end
+	if input.UserInputType == Enum.UserInputType.MouseButton2 or input.KeyCode == Enum.KeyCode.ButtonL1 then
+		isRightMouseDown = false
+	end
 end)
 
 game:GetService("RunService").Stepped:Connect(function()
-    if isRightMouseDown then
-        local closest = getClosestPlayer()
-        if closest then
-            game.Workspace.CurrentCamera.CFrame = CFrame.new(game.Workspace.CurrentCamera.CFrame.Position, closest.Character.HumanoidRootPart.Position)
-        end
-    end
+	if isRightMouseDown then
+		local closest = getClosestPlayer()
+		if closest then
+			game.Workspace.CurrentCamera.CFrame = CFrame.new(game.Workspace.CurrentCamera.CFrame.Position, closest.Character.HumanoidRootPart.Position)
+		end
+	end
 end)
