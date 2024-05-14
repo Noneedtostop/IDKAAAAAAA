@@ -14,8 +14,7 @@ local Helper1 = Instance.new("TextLabel")
 local Helper2 = Instance.new("TextLabel")
 
 
-local ESPColor = Color3.new(255,0,0)
---Properties:
+
 
 ESP.Name = "ESP"
 ESP.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -109,6 +108,7 @@ local function CGKA_fake_script() -- MainFrame.LocalScript
 
 				for i, v in pairs(getPlayers) do
 					local ESP = Instance.new("Highlight")
+					local ESPColor = Color3.new(255,0,0)
 					ESP.Name = "ESP"
 					ESP.FillTransparency = 1
 					ESP.Parent = v.Character
