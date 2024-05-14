@@ -17,7 +17,7 @@ Aimbot.Position = UDim2.new(0, 1122, 0, 212)
 Aimbot.Size = UDim2.new(0, 200, 0, 125)
 
 Destroy.Name = "Destroy"
-Destroy.Parent = Frame
+Destroy.Parent = Aimbot
 Destroy.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 Destroy.BorderColor3 = Color3.fromRGB(255, 255, 255)
 Destroy.BorderSizePixel = 3
@@ -30,7 +30,7 @@ Destroy.TextSize = 14.000
 Destroy.TextWrapped = true
 
 Toggle.Name = "Toggle"
-Toggle.Parent = Frame
+Toggle.Parent = Aimbot
 Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Toggle.BackgroundTransparency = 1.000
 Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -44,7 +44,7 @@ Toggle.TextScaled = true
 Toggle.TextSize = 14.000
 Toggle.TextWrapped = true
 
-TextLabel.Parent = Frame
+TextLabel.Parent = Aimbot
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
