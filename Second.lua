@@ -12,7 +12,7 @@ Aimbot.Name = "Aimbot"
 Aimbot.Parent = ScreenGui
 Aimbot.BackgroundColor3 = Color3.fromRGB(65,65,65)
 Aimbot.BorderSizePixel = 0
-Aimbot.Position = UDim2.new(0, 1222, 0, 217)
+Aimbot.Position = UDim2.new(0, 1167,0, 212)
 Aimbot.Size = UDim2.new(0, 95, 0, 98)
 
 Toggle.Name = "Toggle"
