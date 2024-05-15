@@ -8,6 +8,7 @@ local Destroy = Instance.new("TextButton")
 -- Properties:
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Name = "Aimbot"
 
 Aimbot.Parent = ScreenGui
 Aimbot.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
