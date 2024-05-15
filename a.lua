@@ -65,14 +65,14 @@ FOVCircle.Parent = Aimbot
 FOVCircle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 FOVCircle.BackgroundTransparency = 1.000
 FOVCircle.Size = UDim2.new(0, 200, 0, 200) -- Adjust size as needed
-FOVCircle.Image = "http://www.roblox.com/asset/?id=6980070100" -- Replace with your FOV circle image URL
+FOVCircle.Image = "http://www.roblox.com/asset/?id=17496606924" -- Replace with your FOV circle image URL
 FOVCircle.ImageColor3 = Color3.fromRGB(255, 255, 255) -- Set to the color of your FOV circle
 FOVCircle.ImageTransparency = 0.5 -- Adjust transparency as needed
 FOVCircle.Visible = false -- Initially hidden
 
 -- Variables:
 local isRightMouseDown = false
-local FOV_RADIUS = 100 -- Adjust this value as needed
+local FOV_RADIUS = 200 -- Adjust this value as needed
 
 -- Functions:
 local function DestroyAimbot()
