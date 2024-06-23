@@ -1,0 +1,275 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ESP = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local SelfDestruct = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UIStroke = Instance.new("UIStroke")
+local Helper1 = Instance.new("TextLabel")
+local Helper2 = Instance.new("TextLabel")
+local ScreenGui = Instance.new("ScreenGui")
+local Aimbot = Instance.new("Frame")
+local Toggle = Instance.new("TextButton")
+local Title = Instance.new("TextLabel")
+local Destroy = Instance.new("TextButton")
+
+-- Properties:
+
+ESP.Name = "ESP"
+ESP.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ESP.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ESP
+Frame.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 3
+Frame.BorderColor3 = Color3.new(225,255,255)
+Frame.Position = UDim2.new(0.76154995, 0, 0.025062656, 0)
+Frame.Size = UDim2.new(0, 300, 0, 180)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 300, 0, 35)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "NoneedIsGoated"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+SelfDestruct.Name = "SelfDestruct"
+SelfDestruct.Parent = Frame
+SelfDestruct.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+SelfDestruct.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SelfDestruct.BorderSizePixel = 3
+SelfDestruct.BorderColor3 = Color3.new(1,1,1)
+SelfDestruct.Position = UDim2.new(0, 0, 0.805555582, 0)
+SelfDestruct.Size = UDim2.new(0, 300, 0, 35)
+SelfDestruct.Font = Enum.Font.SourceSansBold
+SelfDestruct.Text = "DESTROY"
+SelfDestruct.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelfDestruct.TextScaled = true
+SelfDestruct.TextSize = 14.000
+SelfDestruct.TextWrapped = true
+
+Helper1.Name = "Helper1"
+Helper1.Parent = Frame
+Helper1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Helper1.BackgroundTransparency = 1.000
+Helper1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Helper1.BorderSizePixel = 0
+Helper1.Position = UDim2.new(0, 0, 0.305555552, 0)
+Helper1.Size = UDim2.new(0, 300, 0, 35)
+Helper1.Font = Enum.Font.SourceSansBold
+Helper1.Text = "= for esp"
+Helper1.TextColor3 = Color3.fromRGB(255, 255, 255)
+Helper1.TextScaled = true
+Helper1.TextSize = 14.000
+Helper1.TextWrapped = true
+
+Helper2.Name = "Helper2"
+Helper2.Parent = Frame
+Helper2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Helper2.BackgroundTransparency = 1.000
+Helper2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Helper2.BorderSizePixel = 0
+Helper2.Position = UDim2.new(0, 0, 0.5, 0)
+Helper2.Size = UDim2.new(0, 300, 0, 35)
+Helper2.Font = Enum.Font.SourceSansBold
+Helper2.Text = "Right bracket to toggle visibility"
+Helper2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Helper2.TextScaled = true
+Helper2.TextSize = 14.000
+Helper2.TextWrapped = true
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Name = "Aimbot"
+
+Aimbot.Parent = ScreenGui
+Aimbot.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
+Aimbot.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Aimbot.BorderSizePixel = 3
+Aimbot.Position = UDim2.new(0.76154995, 0, 0.24, 0)
+Aimbot.Size = UDim2.new(0, 200, 0, 125)
+
+Destroy.Name = "Destroy"
+Destroy.Parent = Aimbot
+Destroy.Text = "Destroy"
+Destroy.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Destroy.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Destroy.BorderSizePixel = 3
+Destroy.Position = UDim2.new(0, 0, 0.75999999, 0)
+Destroy.Size = UDim2.new(0, 200, 0, 30)
+Destroy.Font = Enum.Font.SourceSansBold
+Destroy.TextColor3 = Color3.fromRGB(255, 255, 255)
+Destroy.TextScaled = true
+Destroy.TextSize = 14.000
+Destroy.TextWrapped = true
+
+Toggle.Name = "Toggle"
+Toggle.Parent = Aimbot
+Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Toggle.BackgroundTransparency = 1.000
+Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.BorderSizePixel = 0
+Toggle.Position = UDim2.new(0, 0, 0.296000004, 0)
+Toggle.Size = UDim2.new(0, 200, 0, 50)
+Toggle.Font = Enum.Font.SourceSansBold
+Toggle.Text = "Off"
+Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+Toggle.TextScaled = true
+Toggle.TextSize = 14.000
+Toggle.TextWrapped = true
+
+Title.Parent = Aimbot
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Size = UDim2.new(0, 200, 0, 37)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "SO GOATED"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+-- Variables:
+local isRightMouseDown = false
+
+-- Functions:
+-- Function to destroy the Aimbot frame
+local function DestroyAimbot()
+	Aimbot:Destroy()
+end
+
+local function getClosestPlayer()
+	local closestDist = math.huge
+	local closestPlayer = nil
+
+	for _, player in pairs(game.Players:GetPlayers()) do
+		if player ~= game.Players.LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+			local dist = (player.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+			if dist < closestDist then
+				closestDist = dist
+				closestPlayer = player
+			end
+		end
+	end
+
+	return closestPlayer
+end
+
+local function ToggleAimbot()
+	if Toggle.Text == "Off" then
+		Toggle.Text = "On"
+		Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
+	else
+		Toggle.Text = "Off"
+		Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+	end
+end
+
+-- Scripts:
+Toggle.MouseButton1Click:Connect(function()
+	if Toggle.Text == "Off" then
+		Toggle.Text = "On"
+		Toggle.TextColor3 = Color3.fromRGB(0, 170, 0)
+	else
+		Toggle.Text = "Off"
+		Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+	end
+end)
+
+Toggle.MouseButton2Down:Connect(function()
+	isRightMouseDown = true
+end)
+
+Toggle.MouseButton2Up:Connect(function()
+	isRightMouseDown = false
+end)
+
+Destroy.MouseButton1Click:Connect(DestroyAimbot)
+
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+	if not gameProcessedEvent and Toggle.Text == "On" then
+		if input.UserInputType == Enum.UserInputType.MouseButton2 or input.KeyCode == Enum.KeyCode.ButtonL2 then
+			local closestPlayer = getClosestPlayer()
+			if closestPlayer and closestPlayer.Character and closestPlayer.Character:FindFirstChild("HumanoidRootPart") then
+				local aimPart = closestPlayer.Character.HumanoidRootPart
+				game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.1), {CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position, aimPart.Position)}):Play()
+			end
+		end
+	end
+end)
+
+-- ESP Script
+_G.Enabled = false
+_G.TeamCheck = true
+
+local function CreateESPPart(Color)
+    local ESPPartparent = Instance.new("Part")
+    ESPPartparent.Anchored = true
+    ESPPartparent.CanCollide = false
+    ESPPartparent.Size = Vector3.new(1, 1, 1)
+    ESPPartparent.Transparency = 1
+    ESPPartparent.Color = Color
+    return ESPPartparent
+end
+
+local function CreateESP()
+    if not _G.Enabled then
+        return
+    end
+
+    for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+        if player ~= game.Players.LocalPlayer then
+            local Character = player.Character or player.CharacterAdded:Wait()
+            local ESPPart = CreateESPPart(Color3.fromRGB(255, 0, 0))
+
+            local RunService = game:GetService("RunService")
+            RunService.RenderStepped:Connect(function()
+                if Character and Character:FindFirstChild("HumanoidRootPart") then
+                    ESPPart.CFrame = Character.HumanoidRootPart.CFrame
+                end
+            end)
+
+            ESPPart.Parent = game.Workspace
+        end
+    end
+end
+
+local UserInputService = game:GetService("UserInputService")
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.Equals then
+        _G.Enabled = not _G.Enabled
+        if _G.Enabled then
+            CreateESP()
+        else
+            for _, part in pairs(game.Workspace:GetChildren()) do
+                if part:IsA("Part") and part.Color == Color3.fromRGB(255, 0, 0) then
+                    part:Destroy()
+                end
+            end
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.RightBracket then
+        ESP.Enabled = not ESP.Enabled
+    end
+end)
+
+SelfDestruct.MouseButton1Click:Connect(function()
+	ESP:Destroy()
+end)
