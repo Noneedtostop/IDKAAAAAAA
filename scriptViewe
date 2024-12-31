@@ -1,0 +1,98 @@
+local workspaceScripts = {}
+
+-- Collect all scripts in the Workspace
+for _, descendant in ipairs(workspace:GetDescendants()) do
+    if descendant:IsA("Script") or descendant:IsA("LocalScript") or descendant:IsA("ModuleScript") then
+        table.insert(workspaceScripts, descendant)
+    end
+end
+
+-- Create GUI
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "ScriptViewer"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0.8, 0, 0.8, 0)
+frame.Position = UDim2.new(0.1, 0, 0.1, 0)
+frame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+frame.BorderSizePixel = 0
+frame.Parent = screenGui
+
+local uiCorner = Instance.new("UICorner")
+uiCorner.CornerRadius = UDim.new(0, 10)
+uiCorner.Parent = frame
+
+-- Close Button
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 100, 0, 30)
+closeButton.Position = UDim2.new(1, -110, 0, 10)
+closeButton.Text = "Close"
+closeButton.TextColor3 = Color3.new(1, 1, 1)
+closeButton.BackgroundColor3 = Color3.new(0.8, 0.2, 0.2)
+closeButton.Parent = frame
+
+closeButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+end)
+
+-- Search Bar
+local searchBox = Instance.new("TextBox")
+searchBox.Size = UDim2.new(0.9, 0, 0, 30)
+searchBox.Position = UDim2.new(0.05, 0, 0, 10)
+searchBox.PlaceholderText = "Search scripts..."
+searchBox.Text = ""
+searchBox.TextColor3 = Color3.new(0, 0, 0)
+searchBox.BackgroundColor3 = Color3.new(1, 1, 1)
+searchBox.Parent = frame
+
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Size = UDim2.new(0.9, 0, 0.85, 0)
+scrollingFrame.Position = UDim2.new(0.05, 0, 0.15, 0)
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, #workspaceScripts * 40)
+scrollingFrame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+scrollingFrame.BorderSizePixel = 0
+scrollingFrame.Parent = frame
+
+local uiListLayout = Instance.new("UIListLayout")
+uiListLayout.Padding = UDim.new(0, 5)
+uiListLayout.Parent = scrollingFrame
+
+local function refreshScriptList(filterText)
+    -- Clear existing buttons
+    for _, child in ipairs(scrollingFrame:GetChildren()) do
+        if child:IsA("TextButton") then
+            child:Destroy()
+        end
+    end
+
+    -- Recreate buttons based on search filter
+    for _, script in ipairs(workspaceScripts) do
+        if not filterText or script.Name:lower():find(filterText:lower()) then
+            local button = Instance.new("TextButton")
+            button.Size = UDim2.new(1, -10, 0, 35)
+            button.Text = string.format("%s - %s - %s", script.Name, script.ClassName, script:GetFullName())
+            button.TextSize = 14
+            button.TextXAlignment = Enum.TextXAlignment.Left
+            button.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+            button.TextColor3 = Color3.new(1, 1, 1)
+            button.Parent = scrollingFrame
+
+            -- Add click functionality
+            button.MouseButton1Click:Connect(function()
+                game:GetService("Selection"):Set({script}) -- Select the script in the Explorer
+                if not script:IsA("ModuleScript") then
+                    script:OpenScript() -- Open the script in the editor
+                end
+            end)
+        end
+    end
+end
+
+-- Refresh list initially
+refreshScriptList()
+
+-- Update list on search
+searchBox:GetPropertyChangedSignal("Text"):Connect(function()
+    refreshScriptList(searchBox.Text)
+end)
